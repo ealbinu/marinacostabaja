@@ -1,0 +1,30 @@
+section#registra-tus-ventas
+  .container
+    .row.justify-content-center
+        .col-md-6.col-sm-12.text-center: h2 Registra tus ventas
+    .row.justify-content-center
+        .col
+          hr
+          form
+            +inputText("Nombre de cliente")
+            +inputText("Número de factura o ticket")
+            +inputText("Fecha de venta", "date")
+            +inputText("Monto de venta (sin IVA)")
+            +inputSelect("Categoría", "Categoría 1", "Categoría 2", "Categoría 3")
+            +inputSelect("Producto", "Producto 1", "Producto 2", "Producto 3")
+            +inputText("Cantidad", "number")
+            .form-group.row
+                .col-5 &nbsp;
+                .col-7: button(type="button").btn.btn-large.btn-primary Agregar producto
+            +inputText("Total de puntos por acumular")
+            .form-group.row
+                .col-5 &nbsp;
+                .col-7
+                  button(type="button").btn.btn-large.btn-primary
+                    i.fa.fa-camera
+                    |  Adjuntar comprobante de venta
+                  p.small El archivo debe estar en formato JPG o PDF, con un tamaño no mayor a 200 KB. Te recomendamos escanear la factura a 150 dpi de resolución en escala de grises.
+
+            .form-group.row
+                .col.text-center: button(type="submit").btn.btn-large.btn-primary Registrar
+            

@@ -1,0 +1,52 @@
+include _app
+doctype html
+html(lang="es")
+  +head
+
+body(data-spy="scroll" data-target=".navbar" data-offset="80")
+  header
+    .grainger: img(src="app/img/grainger.svg", alt="Grainger")
+    .container
+      .row.justify-content-center
+        .col.text-center
+          img(src="app/img/puntosmasxmas.svg" alt="Puntos Más X Más")
+      .row.justify-content-center
+        +navitems(true)
+  +navi(true)
+
+  section
+    .container
+      .row.justify-content-center
+        .col-md-6.col-sm-12.text-center: h2 Carrito
+      .row
+        .col
+
+          table.table
+            thead
+              tr
+                th(scope="col") Producto
+                th(scope="col") Cantidad
+                th(scope="col") Total
+            tbody
+              tr
+                td
+                  .row
+                    .col: img(src="https://placehold.it/80x80")
+                    .col Olla a presión, 6 L.		
+                td 1
+                td $550
+            tfoot
+              tr
+                td(colspan="2").text-right Total:
+                td $550
+      .row
+        .col.text-center
+          button(type="button").btn.btn-primary Realizar pago
+                            
+
+
+              
+
+  +footer
+  +scripts
+  

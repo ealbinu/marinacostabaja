@@ -1,0 +1,17 @@
+section#promociones
+  .container
+    .row.justify-content-center
+      .col-md-6.col-sm-12.text-center: h2 Promociones
+  .container
+    .row
+      .carousel.slide(data-ride="carousel")#promoSlide
+        .carousel-inner
+          .carousel-item.active
+            img(src="app/img/promo.jpg").d-block.w-100
+          .carousel-item
+            img(src="app/img/promo.jpg").d-block.w-100
+        a.carousel-control-prev(data-slide="prev" href="#promoSlide")
+          span.carousel-control-prev-icon
+          span.sr-only Previous
+        //a.carousel-control-next(data-slide="next" href="#promoSlide")
+          span.carousel-control-next-icon

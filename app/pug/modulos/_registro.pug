@@ -1,0 +1,36 @@
+section#registro
+  .container
+    .row.justify-content-center
+        .col-md-6.col-sm-12.text-center: h2 Registra tus datos
+    .row.justify-content-center
+        .col.col-md-8.col-sm-12.text-center
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+    .row.justify-content-center
+        .col
+          hr
+          form
+            +inputText("Número de Cuenta Grainger <small>Es el número de cuenta que te proporciona Grainger al momento de darte de alta en su sistema. El número de cuenta Grainger consta de 10 dígitos. Ejemplo: 088XXXXXXX.<br>El programa Puntos Más x Más no aplica para: Clientes corporativos; Clientes globales; Organismos de gobierno; Clientes con cartera vencida; Precios por contrato; Punchout; Micrositio; Keepstock; Empleados Grainger.</small>", "text", "Número de 10 dígitos")
+            +inputText("Nombre")
+            +inputText("Apellido Paterno")
+            +inputText("Apellido Materno")
+            +inputOptions("Género", "Femenino", "Masculino")
+            +inputText("Fecha de nacimiento", "date")
+            +inputText("Correo electrónico")
+            +inputText("Confirmar Correo Electrónico")
+            +inputText("Número de Celular", "tel", "044 - ")
+            +inputSelect("¿Cómo conociste el programa?", "Sucursal Grainger", "Sitio Web Grainger", "Ejecutivo de Cuenta Grainger", "Recomndación", "Expo", "Publicidad Telefónica", "Correo Electrónico", "Redes Sociales Grainger", "Publicidad Telefónicas Más X Más", "Otro")
+            +inputText("Código Postal", "number")
+            +inputText("Contraseña <small>La contraseña debe ser mínimo de 6 caracteres, puede incluir mayúsculas, minúsculas, números y caracteres especiales.</small>", "password", "Ingrese una contraseña")
+            +inputText("Confirmar contraseña", "password", "Confirme la contraseña ingresada")
+            .form-group.row
+                .col.offset-5
+                    label
+                        input(type="checkbox")
+                        span  Acepto Términos y Condiciones de Puntos Más X Más.
+                    label
+                        input(type="checkbox")
+                        span  Estoy de acuerdo con la Política de Privacidad.
+            
+            .form-group.row
+                .col.text-center: button(type="submit").btn.btn-large.btn-primary Registrarme
+            

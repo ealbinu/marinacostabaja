@@ -1,0 +1,182 @@
+include _app
+doctype html
+html(lang="es")
+  +head
+  
+
+body(data-spy="scroll" data-target=".navbar" data-offset="80")
+  header
+    .grainger: img(src="app/img/grainger.svg", alt="Grainger")
+    .container
+      .row.justify-content-center
+        .col.text-center
+          img(src="app/img/puntosmasxmas.svg" alt="Puntos Más X Más")
+      .row.justify-content-center
+        +navitems(true)
+  +navi(true)
+
+  section#mi-cuenta
+    .container
+      .row.justify-content-center
+        .col-md-6.col-sm-12.text-center: h2 Mi Cuenta
+
+      .row
+        .col
+          nav
+            .nav.nav-tabs(role="tablist")#nav-tab
+              a(data-toggle="tab" href="#nav-personales" role="tab").nav-item.nav-link.active Datos Personales
+              a(data-toggle="tab" href="#nav-estado" role="tab").nav-item.nav-link Estado de Cuenta
+              a(data-toggle="tab" href="#nav-datos" role="tab").nav-item.nav-link Datos de Acceso
+              a(data-toggle="tab" href="#historico" role="tab").nav-item.nav-link Histórico de Canjes
+              //a(data-toggle="tab" href="#nav-registro" role="tab").nav-item.nav-link Registro de ventas
+              //a(data-toggle="tab" href="#nav-material" role="tab").nav-item.nav-link Material de capacitación
+          .tab-content
+            div(role="tabpanel").tab-pane#nav-personales.active
+              .row: .col-md-8.offset-md-2
+                form
+                  +inputText("Número de Cuenta Grainger <small>Es el número de cuenta que te proporciona Grainger al momento de darte de alta en su sistema. El número de cuenta Grainger consta de 10 dígitos. Ejemplo: 088XXXXXXX.<br>El programa Puntos Más x Más no aplica para: Clientes corporativos; Clientes globales; Organismos de gobierno; Clientes con cartera vencida; Precios por contrato; Punchout; Micrositio; Keepstock; Empleados Grainger.</small>", "text", "Número de 10 dígitos")
+                  +inputText("Nombre")
+                  +inputText("Apellido Paterno")
+                  +inputText("Apellido Materno")
+                  +inputOptions("Género", "Femenino", "Masculino")
+                  +inputText("Fecha de nacimiento", "date")
+                  +inputText("Correo electrónico")
+                  +inputText("Confirmar Correo Electrónico")
+                  +inputText("Número de Celular", "tel", "044 - ")
+                  +inputSelect("¿Cómo conociste el programa?", "Sucursal Grainger", "Sitio Web Grainger", "Ejecutivo de Cuenta Grainger", "Recomndación", "Expo", "Publicidad Telefónica", "Correo Electrónico", "Redes Sociales Grainger", "Publicidad Telefónicas Más X Más", "Otro")
+                  +inputText("Código Postal", "number")
+                  +inputText("Contraseña <small>La contraseña debe ser mínimo de 6 caracteres, puede incluir mayúsculas, minúsculas, números y caracteres especiales.</small>", "password", "Ingrese una contraseña")
+                  +inputText("Confirmar contraseña", "password", "Confirme la contraseña ingresada")
+                  .form-group.row
+                      .col.offset-5
+                          label
+                              input(type="checkbox")
+                              span  Acepto Términos y Condiciones de Puntos Más X Más.
+                          label
+                              input(type="checkbox")
+                              span  Estoy de acuerdo con la Política de Privacidad.
+                  
+                  .form-group.row
+                .col.text-center: button(type="submit").btn.btn-large.btn-primary Editar
+
+            div(role="tabpanel").tab-pane#nav-estado
+              .row: .col-md-8.offset-2.text-center.mt-5.mb-5
+                h3 Saldo en Puntos Más X Más al día de hoy: #[strong.main 2,010.00 puntos]
+                .hr
+                table.table
+                  tr
+                    td Periodo:
+                    td
+                      select.form-control
+                        option Julio 2018
+                        option Agosto 2018
+                    td #[strong.main Julio del 2018 a Diciembre del 2018]
+                table.table
+                  tr
+                    td Puntos Más X Más acumulados: #[strong.main 10,500.00]
+                    td Puntos Más X Más canjeados: #[strong.main 18,990.00]
+              .hr
+              .text-center: h3 Detalle del periodo
+              table.table
+                thead
+                  tr
+                    th(scope="col") Fecha
+                    th(scope="col") Concepto
+                    th(scope="col") Puntos
+                    th(scope="col") Saldo
+                tbody
+                  - for(var i=1; i<6; i++)
+                    - var vali = 100*i;
+                    tr
+                      td(scope="col") 05/07/2018
+                      td Acumulación #{i}
+                      td 100
+                      td=vali
+              .hr
+              .row: .col-md-8.offset-2.text-center.mt-5.mb-5
+                .text-center: h3 Puntos por vencer el próximo mes
+                table.table
+                  tr
+                    td Mes: #[strong.main Enero]
+                    td Puntos por vencer: #[strong.main 0 Puntos Más X Más]
+
+                .alert.alert-secondary
+                  i.fa.fa-calendar 
+                  |  
+                  i.fa.fa-check-circle
+                  |  
+                  | La vigencia de los puntos es de 12 meses a partir del mes de acumulación.
+
+            div(role="tabpanel").tab-pane#nav-datos
+              .row: .col-md-8.offset-md-2
+                form
+                  .form-group.row
+                    label.text-right.col-form-label.col-4 Usuario:
+                    .col-8
+                      input(readonly value="usuario@"+url).form-control-plaintext 
+                  .form-group.row
+                    label.text-right.col-form-label.col-4 Contraseña*:
+                    .col-8
+                      input(type="password" placeholder="Contraseña*").form-control 
+                  
+                  .form-group.row
+                    label.text-right.col-form-label.col-4 Confirmar contraseña*:
+                    .col-8
+                      input(type="password" placeholder="Confirmar contraseña*").form-control 
+                  small.text-center * Información requrida
+                  .text-center: button(type="submit").btn.btn-large.btn-primary Editar
+            
+            div(role="tabpanel").tab-pane#historico
+              table.table
+                thead
+                  tr
+                    th(scope="col") # Pedido
+                    th(scope="col") Fecha de Canje
+                    th(scope="col") Estatus de Entrega
+                    th(scope="col") Cantidad
+                    th(scope="col") Total Canjeado
+                    th(scope="col") Detalle
+                tbody
+                  tr
+                    td(scope="col") 2583-1257
+                    td 2018/11/22	
+                    td Pendiente por enviar	
+                    td 2
+                    td 3025.00 puntos
+                    td: a(data-toggle="collapse" href="#pedido1").btn.btn-primary Ver
+                  tr#pedido1.collapse
+                    td(colspan="6")
+                      table.table.tabledetail
+                        thead
+                          tr
+                            th(scope="col") Producto
+                            th(scope="col") Número de teléfono
+                            th(scope="col") Mensajería
+                            th(scope="col") Número de rastreo
+                            th(scope="col") Fecha estimada de entrega
+                            th(scope="col") Cantidad
+                            th(scope="col") Subtotal en Puntos
+                        tbody
+                          tr
+                            td
+                              .row
+                                .col: img(src="https://placehold.it/80x80")
+                                .col Olla a presión, 6 L.	
+                            td N/A
+                            td Pendiente
+                            td Pendiente
+                            td 11/12/2018	
+                            td 1
+                            td 1620.00 puntos
+                        tfoot
+                          tr
+                            td(colspan="6").text-right Total:
+                            td 3025.00 puntos
+ 
+
+
+              
+
+  +footer
+  +scripts
+  

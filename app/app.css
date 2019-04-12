@@ -1,0 +1,577 @@
+*{ margin: 0; padding: 0; }
+:root{
+  --colMain : #02AEC2;
+  --colSec  : #04195F;
+  --colLight: #FADC0D;
+  --colB : #555555;
+  --colW    : #f5f5f5;
+  --bluemx  : #8DB8E6;
+  --colG    : #767676;
+}
+body{
+  background: var(--colW);
+  font-family: 'PT Sans Narrow', sans-serif;
+  color: var(--colB)
+}
+
+h1, h2, h3, h4, h5{
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: bold;
+}
+
+.loginlogo{
+  text-align: center;
+  padding: 40px 0;
+}
+.loginlogo img{
+  max-width: 280px;
+}
+
+.loginform{
+  background: #fff;
+  padding: 40px;
+
+}
+.loginform h2{
+  padding-bottom: 10px;
+  color: var(--colMain);
+  border-bottom: 1px solid var(--colMain);
+}
+.loginform label{
+  display: block;
+  padding: 10px;
+}
+
+
+.btn-primary{background:var(--colMain); border-color: var(--colMain);}
+.btn-primary:hover{background:var(--colSec);}
+
+.btn-secondary{background:var(--colSec);}
+
+.navbar-brand img{
+  max-height: 40px;
+}
+.fa-bars{
+  color:var(--colMain);
+}
+
+.navbar-collapse{
+  text-align: center;
+}
+
+/*########## ACCESO #####*/
+
+.navbar-nav .nav-link{
+  color:var(--colB);
+  text-transform: uppercase;
+  position: relative;
+  display: block;
+  font-size: 0.8em;
+}
+.navbar-nav .nav-link::before{
+    content:"";
+    width: 100%;
+    position: absolute; left: 0; top: 0;
+    border-top: 0px solid var(--colMain);
+    transition: all .5s;
+  }
+.navbar-nav .nav-link.active{
+  color:var(--colMain);
+}
+.navbar-nav .nav-link.active::before{
+  border-top: 2px solid var(--colMain);
+  transition: all .5s;
+}
+
+
+section{
+  margin-top: 70px;
+  margin-bottom: 200px;
+}
+
+h2{
+  color:var(--colWSec);
+  font-size: 2em;
+  padding: 20px 0;
+  border-bottom: 2px solid var(--colMain);
+  margin-bottom: 40px;
+  text-transform: uppercase;
+}
+
+p{
+  margin: 20px 0;
+}
+
+
+.elreto{
+  background: var(--colMain);
+  letter-spacing: 2px;
+  font-size: 1.2em;
+  padding: 40px 20px;
+}
+.elreto p{
+  color:var(--colW);
+}
+.elreto .gana{
+  display: block;
+  font-weight: bold;
+  font-size: 1.2em;
+}
+
+form small{
+  display: block;
+}
+form label{
+  font-weight: bold;
+  font-size: 0.9em;
+}
+form .form-check{
+  font-size: 0.8em;
+}
+form .form-check label{
+  font-weight: normal;
+}
+
+ #contacto input, #contacto textarea, #contacto button{
+  margin-top: 10px;
+}
+
+
+
+footer .footer-nav{
+  background: var(--colMain);
+  color: var(--colSec);
+}
+footer .footer-nav a{
+  display: inline-block;
+  color: var(--colW);
+  font-size: 0.7em;
+  margin: 10px;
+}
+
+
+.bluemx{
+  background: var(--bluemx);
+  font-size: 0.7em;
+  line-height: 0.8em;
+  padding-bottom: 5px;
+}
+.bluemx a{
+  color:#101E40;
+}
+
+
+
+
+
+.nav-tabs .nav-item.nav-link{
+  color: var(--colMain);
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: bold;
+}
+.nav-tabs .nav-item.nav-link.active{
+  background: var(--colMain);
+  color:#fff;
+}
+
+#nav-datos{
+  margin-top: 40px;
+}
+#nav-datos .form-control-plaintext{
+  font-weight: bold;
+}
+#nav-datos button{
+  margin-top: 20px;
+  width: 200px;
+}
+#nav-datos small{display: block; opacity: 0.6;}
+
+
+
+
+#promociones{ cursor: pointer; }
+#actividades{ display: none; }
+
+
+
+.tusaldo{
+  color: var(--colMain);
+  font-size: 3em;
+  font-weight: bold;
+}
+
+.tableimg img{
+  width: 80px;
+}
+
+
+
+
+
+
+/* TEMPER  METAS */
+
+
+.tempart {
+	display: block;
+	width: 100%;
+	padding: 80px 10px;
+}
+.tempart tbody {
+	display: block;
+	width: 100%;
+}
+.tempart tr {
+	border-radius: 8px !important;
+	border: 4px solid var(--colMain) !important;
+	display: flex !important;
+	position: relative;
+	margin: 40px 10px 120px;
+}
+.tempart tr td {
+	border: none;
+	display: block;
+	flex-grow: 1;
+	overflow: hidden;
+}
+.tempart tr td:first-child {
+	color: #fff;
+	background: var(--colMain);
+	font-size: 0.8em;
+	max-width: 180px;
+	text-align: center;
+	line-height: 1.9;
+}
+.tempart tr td:first-child + td {
+	width: 30%;
+	font-weight: bold;
+	color: #fff;
+}
+.tempart tr td:first-child + td + td + td + td {
+	background: var(--colMain);
+	position: absolute;
+	left: 50%;
+	bottom: 120%;
+	padding: 6px 20px;
+	border-radius: 15px;
+	color: #fff;
+	font-size: 1em;
+	overflow: visible;
+}
+.tempart tr td:first-child + td + td + td + td:after {
+	content: "";
+	width: 0;
+	height: 0;
+	border-left: 6px solid transparent;
+	border-right: 6px solid transparent;
+	border-top: 6px solid var(--colSec);
+	position: absolute;
+	left: 20px;
+	top: 100%;
+}
+.tempart tr:after {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	height: 100%;
+	background: var(--colSec);
+	z-index: -1;
+	box-shadow: 0 0 60px rgba(0, 30, 90, 0.3);
+}
+.tempart tr:before {
+	content: "";
+	position: absolute;
+	bottom: 0;
+	top: 0;
+	left: 0;
+	width: 100%;
+	background: #fff;
+	z-index: -2;
+}
+.tempart tr.is-60:after {
+	width: 60%;
+	background: #FAD035;
+}
+.tempart tr.is-78:after {
+	width: 82%;
+  background: #DDDC44;
+  background-image: linear-gradient(to right, #EE1B2D, #FAD035);
+}
+.tempart tr.is-100 td:first-child + td + td + td + td {
+	background: #B0DB4C;
+	color: var(--colMain);
+}
+.tempart tr.is-100:after {
+	width: 100%;
+	background: #B0DB4C;
+}
+
+
+
+
+
+
+
+
+
+#banner{margin-top: 100px; margin-bottom: 0;}
+
+#reserva{
+  width: 100%;
+  background: var(--colMain);
+  color:#fff;
+  padding: 4px;
+  text-align: center;
+}
+#reserva form.form-inline{
+  text-align: center;
+  justify-content: center;
+}
+#reserva .form-group{
+  margin:0 10px;
+  
+}
+#reserva .form-control{
+  padding: 0 4px;
+  text-align: center;
+  border-radius: 2px;
+}
+#reserva label{
+  margin-right: 10px;
+}
+#reserva input[type='number']{
+  width: 60px;
+}
+
+@media (max-width:960px){
+  #reserva .form-group {
+    flex-direction: column;
+    justify-content: flex-start;
+    flex-basis: 20%;
+    width: 24%;
+    margin: 4px;
+  }
+  #reserva .form-group label{
+    font-size: 0.8em; text-align: left; width: 100%;
+    padding: 0;
+    margin: 0 !important;
+  }
+  #reserva .form-group input{
+    font-size: 0.8em;
+    width: 100%;
+  }
+  #banner{margin-top: 152px;}
+}
+
+strong.main{
+  color:var(--colMain);
+}
+
+.hr{
+  width: 80px;
+  height: 8px;
+  background: var(--colMain);
+  margin: 40px auto;
+}
+
+#como{
+  background-image: linear-gradient(#EE2A2E, #BE191D);
+  color:#fff;
+  overflow: hidden;
+  font-size: 1.4rem;
+
+}
+#como #comocontents{
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+#como #comocontents .row{
+  justify-content: center;
+  align-items: center;
+  padding: 40px 0;
+}
+#como .num{
+  color:var(--colSec);
+  font-size: 90px;
+  font-family: 'PT Sans Narrow', sans-serif;
+text-align: center;
+}
+#como .hr{
+  background: var(--colW);
+  margin-bottom: -30px;
+}
+#como #comobg{
+  background-image: url(img/comofuncionapuntosmasxmas.jpg);
+  background-size: cover;
+  background-position: left;
+  box-shadow: 0 0 40px #881518;
+}
+
+input.form-control, select.form-control, textarea.form-control{
+  -webkit-appearance: none;
+  border-radius: 0;
+  border:none;
+  border-bottom: 2px solid var(--colMain);
+}
+
+#catalogo .card{
+  border: none;
+  background:transparent;
+  
+}
+#catalogo .card a{
+  font-family: 'PT Sans Narrow', sans-serif;
+  text-transform: uppercase;
+  color:#000;
+  font-size: 1.2em;
+}
+
+#catalogo .card .hr{
+  margin: -5px auto;
+}
+.barra{margin-bottom: 200px;}
+.barra img{width: 100%;}
+.barra .text{
+  background-image: linear-gradient(to right, #BE191D , #EE2A2E, #BE191D);
+  color:#fff;
+  font-family: 'PT Sans Narrow', sans-serif;
+  text-transform: uppercase;
+  color:#fff;
+  font-size: 1.8em;
+  text-align: center;
+  padding: 20px 10px;
+  box-shadow: 0 10px 20px rgba(0,0,0, 0.3);
+  text-shadow: 0 4px 8px rgba(0,0,0, 0.2);
+}
+
+
+#contacto{
+  margin-bottom: 0;
+}
+#contactoinf{
+  margin-top: 0;
+  padding: 120px 0;
+  background-image: linear-gradient(#E6E6E6, #fff);
+}
+#contactoinf .form-control{
+  margin-bottom: 20px;
+}
+
+#contactoinf .btn{
+  border: 1px solid var(--colMain);
+}
+#contactoinf .btn:hover{
+  background:var(--colSec);
+}
+
+
+
+nav.navbar{
+  box-shadow: 0 0 20px rgba(0,0,0,0.3);
+  transition: all .5s;
+  /*transform: translateY(-100px);*/
+  border-bottom: 4px solid var(--colMain);
+  min-height: 100px;
+  font-family: 'PT Sans Narrow', sans-serif;
+  font-weight: bold;
+}
+nav.navbar .nav-item a{
+  color: var(--colG);
+}
+nav.navbar .nav-item a:hover{
+  color: var(--colMain);
+}
+
+nav.navbar.visible{
+  /*transform: translateY(0);*/
+  min-height: 64px;
+  transition: all .5s;
+}
+
+
+
+.modal-header h2{
+  padding: 20px;
+  margin: 0 auto;
+}
+.modal-header .close{
+  color:#000;
+  opacity: 1;
+  position: absolute;
+  right: 5px;
+  top: 0;
+}
+.modal a{
+  color:#000;
+}
+.modal .links{
+  font-size: 0.8em;
+}
+.modal .links a{
+  margin: 10px;
+}
+
+.modal .card-body a.btn.btn-sm{
+  font-size: 1em !important;
+}
+.modal .card-body a.btn .fa{
+  font-size: 12px;
+}
+
+
+
+.nav-item.dropdown{
+  border-bottom: 2px solid var(--colMain);
+}
+
+.tabledetail{
+  font-size: 0.8em;
+}
+
+
+
+.min-height-bg500, .min-height-bg400, .min-height-bg300, .min-height-bg200, .min-height-bg100, .min-height-bg{
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+.min-height-bg500{ min-height: 500px; }
+.min-height-bg400{ min-height: 400px; }
+.min-height-bg300{ min-height: 300px; }
+.min-height-bg200{ min-height: 200px; }
+.min-height-bg100{ min-height: 100px; }
+
+.mt-m100{
+  margin-top: -100px;
+}
+@media (max-width:768px){
+  .mt-m100{
+    margin-top: 0;
+  }
+}
+
+
+#contacto .socials i{
+  color: var(--colMain);
+  font-size: 30px;
+}
+
+#contacto_interior{
+  margin-bottom: 20px;
+  background-color: var(--colMain);
+  padding: 40px 0;
+}
+#contacto_interior p, #contacto_interior h2{
+  color:#fff;
+}
+#contacto_interior h2{
+  border-bottom-color: #fff;
+}
+
+.navbar.fixed-top{
+  padding: 0 !important;
+  flex-wrap: wrap;
+}

@@ -1,0 +1,145 @@
+include _app
+doctype html
+html(lang="es")
+  +head
+  
+
+body(data-spy="scroll" data-target=".navbar" data-offset="80")
+
+  +navi(true)
+
+  section#mi-cuenta
+    .container
+      .row.justify-content-center
+        .col-md-6.col-sm-12.text-center: h2 Enviar invitación
+
+      .row
+        .col
+          //nav
+            .nav.nav-tabs(role="tablist")#nav-tab
+              a(data-toggle="tab" href="#nav-personales" role="tab").nav-item.nav-link.active Datos Personales
+              a(data-toggle="tab" href="#nav-estado" role="tab").nav-item.nav-link Estado de Cuenta
+              a(data-toggle="tab" href="#nav-datos" role="tab").nav-item.nav-link Datos de Acceso
+              a(data-toggle="tab" href="#nav-catalogo" role="tab").nav-item.nav-link Catálogo de canje
+              a(data-toggle="tab" href="#nav-registro" role="tab").nav-item.nav-link Registro de ventas
+              a(data-toggle="tab" href="#nav-material" role="tab").nav-item.nav-link Material de capacitación
+          .tab-content
+            div(role="tabpanel").tab-pane#nav-personales.active
+              .row: .col-md-8.offset-md-2
+                form.mt-5
+                  +inputText("Nombre")
+                  +inputText("Primer Apellido")
+                  +inputText("Segundo Apellido")
+                  //+inputOptions("Género", "Femenino", "Masculino")
+                  //+inputText("Fecha de nacimiento", "date")
+                  +inputText("Correo electrónico")
+                  //+inputText("Confirmar Correo Electrónico")
+                  //+inputText("Número de Teléfono", "tel", "(Clave LD) + Teléfono")
+                  //+inputText("Dirección")
+                  //+inputText("Código Postal")
+                  .text-center.mt-2: button(type="submit").btn.btn-large.btn-primary Enviar invitación
+
+            //div(role="tabpanel").tab-pane#nav-estado
+              table.table
+                thead
+                  tr
+                    th(scope="col") Fecha
+                    th(scope="col") Concepto
+                    th(scope="col") Puntos
+                    th(scope="col") Saldo
+                tbody
+                  - for(var i=1; i<6; i++)
+                    - var vali = 100*i;
+                    tr
+                      td(scope="col") 05/07/2018
+                      td Acumulación Reto 1
+                      td 100
+                      td=vali
+              hr
+              .alert(role="alert")
+                .text-center
+                  p Tu saldo al día de hoy es de:
+                  h3 500
+              hr
+            //div(role="tabpanel").tab-pane#nav-datos
+              .row: .col-md-8.offset-md-2
+                form
+                  .form-group.row
+                    label.text-right.col-form-label.col-4 Usuario:
+                    .col-8
+                      input(readonly value="patricia.polo@seur.net").form-control-plaintext 
+                  .form-group.row
+                    label.text-right.col-form-label.col-4 Contraseña*:
+                    .col-8
+                      input(type="password" placeholder="Contraseña*").form-control 
+                  
+                  .form-group.row
+                    label.text-right.col-form-label.col-4 Confirmar contraseña*:
+                    .col-8
+                      input(type="password" placeholder="Confirmar contraseña*").form-control 
+                  small.text-center * Información requrida
+                  .text-center: button(type="submit").btn.btn-large.btn-primary Editar
+            //div(role="tabpanel").tab-pane#nav-catalogo
+              .row
+                -for(var i = 1; i<7; i++)
+                  .col-md-4.col-sm-6
+                    .card.mt-5
+                      img(src="app/img/canje-"+i+".jpg").card-img-top
+                      .card-body.text-center
+                        form
+                          .text-center.mt-2
+                            button().btn.btn-primary Canjear
+                            button().btn.btn-primary
+                              span.fa.fa-cart-plus
+                            button().btn.btn-primary Ver más
+
+            
+            //div(role="tabpanel").tab-pane#nav-registro
+              .row: .col-md-8.offset-md-2
+                form.mt-5
+                  h3.text-center.mb-4 Datos del cliente
+                  +inputSelect("Elija un cliente", "Cliente 1", "Cliente 2", "Cliente 3")
+                  +inputText("Nombre o razón social")
+                  +inputText("RFC")
+                  +inputText("Número de Teléfono", "tel", "(Clave LD) + Teléfono")
+                  +inputText("Giro")
+                  p.text-center Los datos del cliente se guardaran para futuros registros.
+
+                  h3.text-center.mt-5.mb-4 Datos de la factura
+                  +inputText("Número de factura / Nota de remisión")
+                  +inputText("Fecha de la factura", "date")
+                  p.text-center Indica los productos y las piezas que integran la venta:
+                  +inputSelect("Marca del producto", "Marca 1", "Marca 2", "Marca 3")
+                  +inputSelect("Linea de producto", "Linea 1", "Linea 2", "Linea 3")
+                  +inputSelect("Producto", "Producto A", "Producto B", "Producto C")
+                  .row
+                    .col-6: +inputText("Cantidad", "number")
+                    .col-6: +inputText("SKU")
+                  .col.text-center: button(type="submit").btn.btn-large.btn-primary Agregar producto
+                  hr.mt-5.mb-5
+
+                  .form-group.row
+                    label.col-form-label.col-6.text-right Cargar ticket de venta
+                    button.btn.btn-primary
+                      span.fa.fa-camera
+                  p: small El archivo debe estar en formato JPG o PDF, con un tamaño no mayor a 200 KB. Te recomendamos escanear la factura a 150 dpi de resolución y en escala de grises.
+                  .text-center.mt-2: button(type="submit").btn.btn-large.btn-primary Enviar registro
+
+            //div(role="tabpanel").tab-pane#nav-material
+              .row: .col-md-8.offset-md-2
+                h3.text-center.mb-5.mt-5  Material de capacitación
+              .row.text-center
+                .col-6
+                  a(href="#").btn.btn-lg.btn-primary
+                    span.fa.fa-file.fa-5x
+                    div.mt-3 Documentos
+
+                .col-6
+                  a(href="#").btn.btn-lg.btn-primary
+                    span.fa.fa-video-camera.fa-5x
+                    div.mt-3 Video
+                  
+
+  +footer
+  +scripts
+  

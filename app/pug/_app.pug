@@ -1,0 +1,141 @@
+- var title = "Costabaja Resort, Marina & Spa"
+- var description = title
+- var url = "puntosgrainger.com"
+- var secciones = ['RESORT', 'RESTAURANTES', 'EVENTOS', 'SPA', '¿QUÉ HACER EN LA PAZ?', 'PROMOCIONES', 'RENTA DE VILLAS', 'CONTACTO']
+
+- function slugify(text){ return text.toString().toLowerCase().replace('é','e').replace('ó', 'o').replace('á','a').replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, ''); }
+
+mixin head
+  head
+  meta(charset="UTF-8")
+  meta(name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no")
+  title=title
+  meta(name="description" content=description)
+  link(rel="stylesheet", href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css")
+  link( rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous")
+  link(rel="stylesheet", href="app/app.css")
+  link(href="https://fonts.googleapis.com/css?family=PT+Sans+Narrow:400,700" rel="stylesheet")
+
+  
+  link(rel="icon" type="image/x-icon" href="favicon.ico")
+  link(rel="icon" type="image/png" href="favicon.png")
+  if block
+    block
+
+
+mixin scripts
+  script(src="https://code.jquery.com/jquery-3.2.1.min.js" crossorigin="anonymous")
+  script(src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous")
+  script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
+  script(src="app/app.js")
+
+
+mixin inputText(lb, typevar, pholder)
+  - if (pholder==null)
+    - pholder = lb
+  .form-group.row
+    label.col-form-label.col-5.text-right !{lb}
+    input.form-control.col-7(type=typevar, placeholder=pholder)
+    
+mixin inputOptions(lb, ...items)
+  - var nmb = Math.floor(Math.random() * 100);
+  .form-group.row
+    label.col-form-label.col-5.text-right
+      div !{lb}
+      
+    .col-7
+      each item in items
+        .form-check.form-check-inline: label
+          input.form-check-input(type="radio" name="eval"+nmb)
+          span=item
+
+mixin inputCheckboxes(lb, ...items)
+  - var nmb = Math.floor(Math.random() * 100);
+  .form-group.row
+    label.col-form-label.col-5.text-right
+      div !{lb}
+      
+    .col-7
+      each item in items
+        .form-check.form-check-inline: label
+          input.form-check-input(type="checkbox" name="eval"+item)
+          span=item
+
+mixin inputSelect(lb, ...items)
+  - var nmb = Math.floor(Math.random() * 100);
+  .form-group.row
+    label.col-form-label.col-5.text-right
+      div !{lb}
+    
+    select.form-control.col-7
+      each item in items
+        option=item
+
+mixin catalogo(txt, img)
+  .card
+    img(src=img).card-img-top
+    .card-body
+      h4.card-title=txt
+      .card-text: p Consectetur adipiscing elit, sed do eiusmod tempor incididunt.
+      .text-right: a(href="#").btn.btn-secondary Canjear
+      
+      
+mixin navi(inside)
+    .container
+      a.navbar-brand(href="index.html").smooth-scroll: img(src="app/img/costabaja.png")
+      button.navbar-toggler(type="button" data-toggle="collapse" data-target="#mainNav")
+        span.fa.fa-bars
+      .collapse.navbar-collapse#mainNav.justify-content-end
+        ul.navbar-nav
+          each sec in secciones
+              li.nav-item: a(href=slugify(sec)+".html").nav-link=sec
+          
+
+mixin navitems(inside)
+  ul
+    each sec in secciones
+      li.nav-item: a(href=slugify(sec)+".html")=sec
+    if(!inside)
+      li.nav-item: a(href="#" data-toggle="modal" data-target="#loginForm").smooth-scroll Iniciar sesión
+    if(inside)
+      li.nav-item: a(href="index.html") Cerrar sesión
+      li.nav-item.dropdown
+        a(href="#" data-toggle="dropdown").nav-link Bienvenida #[strong Pruebas]
+        .dropdown-menu.text-center
+          p.dropdown-item Saldo en #[strong.main Puntos Más X Más] #[br] #[strong 2,010.00 puntos]
+      li.nav-item.dropdown
+        a(href="#" data-toggle="dropdown").nav-link: i.fa.fa-shopping-cart
+        .dropdown-menu.text-center
+          .dropdown-item Carrito de canje
+          table.table
+            tr
+              td: strong Total
+              td $0
+          a(href="carrito.html").btn.btn-primary Ver carrito
+
+mixin footer
+  //include modulos/_legales  
+  
+  footer
+    .container
+      .text-right: img(src="app/img/powered-by-blue.png")
+    .bluemx.mt-3
+      .text-center
+        a(href="http://www.bluepureloyalty.com/" target="_blank")
+          img(src="app/img/bluemx.png")
+          div blue.mx
+
+
+mixin modal(theid, titulo)
+  .modal.fade(role="dialog" id=theid)
+    .modal-dialog.modal-lg(role="document")
+      .modal-content
+        .modal-header
+          h2=titulo
+          button(type="button" data-dismiss="modal").close: span &times;
+        .modal-body
+          if block
+            block
+
+
+

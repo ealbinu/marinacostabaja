@@ -1,0 +1,22 @@
+#reserva
+
+    form.form-inline(action="https://bookings.ihotelier.com/CostaBaja-Resort-%26-Spa/bookings.jsp" method="get" target="_blank")
+        input(type="hidden" name="HotelID" value="74163")
+        input(type="hidden" name="LanguageID" value="2")
+        input(type="hidden" name="Rooms" value="1")
+        input(name="DateIn" type="hidden")
+        .form-group
+            label(for="fecha") Fecha: 
+            input.form-control#fecha(name="DateInput" type="date")
+        .form-group
+            label(for="noches") Noches: 
+            input.form-control#noches(name="Length" type="number" value="1")
+        .form-group
+            label(for="noches") Adultos: 
+            input.form-control#adultos(name="Adults" type="number" value="1")
+        .form-group
+            label(for="noches") Niños: 
+            input.form-control#ninos(name="Children" type="number" value="0")
+        .form-group
+            button(type="submit").btn.btn-secondary.btn-sm Reservar
+        

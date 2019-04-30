@@ -1,0 +1,35 @@
+include _app
+doctype html
+html(lang="es")
+  +head
+  
+
+body(data-spy="scroll" data-target=".navbar" data-offset="80")
+
+  header
+    nav.navbar.bg-light.navbar-expand-xl.fixed-top
+      +navi(false)
+      //include modulos/_reserva
+  
+  section#banner
+    .carousel.slide(data-ride="carousel")#bannerSlide
+      .carousel-inner: .carousel-item.active: img(src="app/img/resort-steinbecks.jpg").d-block.w-100
+  
+  section.section
+    .container
+      .row.justify-content-center
+        .col.text-center.resortlogo: img(src="app/img/costabaja-resort-spa.png", alt="Costabaja Resort & Spa")
+      .row.justify-content-center.mt-5
+        .col-md-6
+          div(style="background-image: url(app/img/steinbecks-costabaja.jpg)").min-height-bg300
+        .col-md-6
+            p #[strong CostaBaja Resort & Spa] es hogar también del restaurante de especialidad Steinbeck's, localizado a la orilla de la dársena interior de la marina con impresionantes vistas a las montañas.
+            p #[strong Steinbeck's] es un excelente restaurante para diversas ocasiones; puede relajarse y tomar un trago en el espacioso bar al aire libre, disfrutar una cena romántica en la terraza, ofrecer una cena personalizada para un grupo de amigos o una recepción.
+            p El personal de #[strong Steinbeck's] es famoso por su hospitalidad, atención al detalle y sobresaliente servicio al cliente. Esperamos verlo cenar y disfrutar de la selección gourmet de nuestro chef.
+      
+
+  +costabajaAreas
+
+  +footer
+  +scripts
+  

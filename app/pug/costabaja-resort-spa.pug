@@ -1,0 +1,55 @@
+include _app
+doctype html
+html(lang="es")
+  +head
+  
+
+body(data-spy="scroll" data-target=".navbar" data-offset="80")
+
+  header
+    nav.navbar.bg-light.navbar-expand-xl.fixed-top
+      +navi(false)
+      //include modulos/_reserva
+  
+  section#banner
+    .carousel.slide(data-ride="carousel")#bannerSlide
+      .carousel-inner: .carousel-item.active: img(src="app/img/costabaja-resort-spa.jpg").d-block.w-100
+  
+  section.section
+    .container
+      .row.justify-content-center
+        .col.text-center.resortlogo: img(src="app/img/costabaja-resort-spa.png", alt="Costabaja Resort & Spa")
+      .row.justify-content-center
+        .col-md-12
+            p #[strong El Hotel CostaBaja Resort & Spa] se encuentra en el corazón de CostaBaja, desarrollo inmobiliario que se encuentra en La Paz, ‘Puerta de entrada al Mar de Cortés‘, en Baja California Sur, México.
+      .row.justify-content-center.mt-5
+        .col-md-6
+          div(style="background-image: url(app/img/la-paz-1.jpg)").min-height-bg300
+        .col-md-6
+            ul
+              li CostaBaja Resort & Spa es un resort de 5 estrellas que le ofrece lo más exclusivo en servicios y comodidades.
+              li Habitaciones ofrecen una selección de las mejores vistas al mar, las montañas y la marina.
+              li Todas las habitaciones cuentan con Internet inalámbrico.
+              li CostaBaja Resort&Spa es sede del primer Spa de lujo en La Paz.
+              li El resort cuenta además con un salón de 230 metros cuadrados para conferencias, retiros, reuniones, bodas y otros eventos.
+      .row.justify-content-center.mt-5
+        .col-md-6
+            h3 El resort se ubica entre las dársenas interior y exterior de la marina, a sólo unos pasos de 
+            ul
+              li Tiendas
+              li Museos
+              li Canchas de tenis 
+              li Mini súper 
+              li Servicios de expediciones
+              li Alberca 
+              li Gimnasio
+              li Restaurantes gourmet frente al mar
+              li Servicios médicos
+        .col-md-6
+          div(style="background-image: url(app/img/la-paz-2.jpg)").min-height-bg300
+
+  +costabajaAreas
+
+  +footer
+  +scripts
+  

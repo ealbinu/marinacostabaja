@@ -1,0 +1,34 @@
+include _app
+doctype html
+html(lang="es")
+  +head
+  
+
+body(data-spy="scroll" data-target=".navbar" data-offset="80")
+
+  header
+    nav.navbar.bg-light.navbar-expand-xl.fixed-top
+      +navi(false)
+      //include modulos/_reserva
+  
+  section#banner
+    .carousel.slide(data-ride="carousel")#bannerSlide
+      .carousel-inner: .carousel-item.active: img(src="app/img/renta-yates-1.jpg").d-block.w-100
+  
+  section#spa
+    .container
+        .row.justify-content-center
+        .col.text-center: h2 Renta de Yates
+    .container
+        .row.mt-4
+          .col-md.col-sm-12: div(style="background-image: url(app/img/renta-yates-2.jpg)").min-height-bg300
+          .col-md.col-sm-12
+              p Lorem ipsum dolor sit amet consectetur adipisicing elit. Soluta nihil sequi illo officia minima a nisi quaerat itaque. Exercitationem praesentium unde velit? Nesciunt doloribus quam ipsam, iure eos perferendis praesentium?
+        .row.mt-4
+          .col-md.col-sm-12: div(style="background-image: url(app/img/renta-yates-3.jpg)").min-height-bg300
+          .col-md.col-sm-12: div(style="background-image: url(app/img/renta-yates-4.jpg)").min-height-bg400.mt-m100
+        
+
+  +footer
+  +scripts
+  

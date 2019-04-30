@@ -1,7 +1,7 @@
 - var title = "Costabaja Resort, Marina & Spa"
 - var description = title
 - var url = "puntosgrainger.com"
-- var secciones = ['RESORT', 'RESTAURANTES', 'EVENTOS', 'SPA', '¿QUÉ HACER EN LA PAZ?', 'PROMOCIONES', 'RENTA DE VILLAS', 'CONTACTO']
+- var secciones = ['Servicios y amenidades', 'Reserve un Slip', 'Renta de Yates', 'CostaBaja Resort & Spa', 'Qué hacer en La Paz', 'Contacto']
 
 - function slugify(text){ return text.toString().toLowerCase().replace('é','e').replace('ó', 'o').replace('á','a').replace(/\s+/g, '-').replace(/[^\w\-]+/g, '').replace(/\-\-+/g, '-').replace(/^-+/, '').replace(/-+$/, ''); }
 
@@ -29,6 +29,13 @@ mixin scripts
   script(src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous")
   script(src="app/app.js")
 
+
+mixin inputTextarea(lb, pholder)
+  - if (pholder==null)
+    - pholder = lb
+  .form-group.row
+    label.col-form-label.col-5.text-right !{lb}
+    textarea.form-control.col-7(placeholder=pholder)
 
 mixin inputText(lb, typevar, pholder)
   - if (pholder==null)
@@ -138,4 +145,16 @@ mixin modal(theid, titulo)
             block
 
 
-
+mixin costabajaAreas
+  section.section
+    .container.costabaja-resort-areas
+      .row.justify-content-center
+        a.col-md-4(href="costabaja-eventos.html")
+          .card(style="background-image: url(app/img/costabaja-eventos.jpg)").min-height-bg300
+            h2.title.text-center Eventos
+        a.col-md-4(href="costabaja-spa.html")
+          .card(style="background-image: url(app/img/costabaja-spa.jpg)").min-height-bg300
+            h2.title.text-center Spa
+        a.col-md-4(href="costabaja-steinbecks.html")
+          .card(style="background-image: url(app/img/costabaja-steinbecks.jpg)").min-height-bg300
+            h2.title.text-center Steinbeck's

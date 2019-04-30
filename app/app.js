@@ -11,7 +11,7 @@ $(document).ready(function(){
     if (day < 10) day = "0" + day;
     var today = year + "-" + month + "-" + day;
     $('[name=DateInput]').val(today)
-    formatDate()
+    //formatDate()
   });
   $(document).scroll(function(){ showhidenav() });
   function scroller(hash){

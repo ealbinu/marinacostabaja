@@ -1,0 +1,34 @@
+include _app
+doctype html
+html(lang="es")
+  +head
+  
+
+body(data-spy="scroll" data-target=".navbar" data-offset="80")
+
+  header
+    nav.navbar.bg-light.navbar-expand-xl.fixed-top
+      +navi(false)
+      //include modulos/_reserva
+  
+  section#banner
+    .carousel.slide(data-ride="carousel")#bannerSlide
+      .carousel-inner: .carousel-item.active: img(src="app/img/contacto.jpg").d-block.w-100
+  
+  section.section
+    .container
+      .row.justify-content-center
+        .col.text-center: h2 Contacto
+      .row.justify-content-center
+        .col-md-6
+          div(style="background-image: url(app/img/visitanos.jpg)").min-height-bg300
+        .col-md-6
+            p Km. 7.5 Carretera a Pichilingue. Lomas de Palmira, 23010. La Paz, Baja California Sur, Mexico
+            p: strong Dockmaster, Gabriel Ley
+            p: a(href="mailto:gley@marinacostabaja.com") gley@marinacostabaja.com
+            p USA: 1.888.866.9394
+            p MX: + 52.612.121.6225
+
+  +footer
+  +scripts
+  

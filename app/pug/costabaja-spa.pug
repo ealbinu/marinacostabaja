@@ -1,0 +1,36 @@
+include _app
+doctype html
+html(lang="es")
+  +head
+  
+
+body(data-spy="scroll" data-target=".navbar" data-offset="80")
+
+  header
+    nav.navbar.bg-light.navbar-expand-xl.fixed-top
+      +navi(false)
+      //include modulos/_reserva
+  
+  section#banner
+    .carousel.slide(data-ride="carousel")#bannerSlide
+      .carousel-inner: .carousel-item.active: img(src="app/img/resort-spa.jpg").d-block.w-100
+  
+  section.section
+    .container
+      .row.justify-content-center
+        .col.text-center.resortlogo: img(src="app/img/costabaja-resort-spa.png", alt="Costabaja Resort & Spa")
+      .row.justify-content-center.mt-5
+        .col-md-6
+          div(style="background-image: url(app/img/spa-costabaja.jpg)").min-height-bg300
+        .col-md-6
+          p #[strong CostaBaja Resort & Spa] es sede del primer spa de La Paz, con cuidado integral a la salud y al bienestar, en un ambiente que integra métodos holísticos y tradicionales para crear una experiencia de relajación total. Cree su propia experiencia eligiendo entre una variedad de terapias de salud y belleza que nutrirán su piel, cuerpo y mente.
+          h3 Escápese
+          h3 Relájese
+          h3 Consiéntase
+      
+
+  +costabajaAreas
+
+  +footer
+  +scripts
+  

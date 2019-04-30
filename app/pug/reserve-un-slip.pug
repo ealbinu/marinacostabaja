@@ -1,0 +1,141 @@
+include _app
+doctype html
+html(lang="es")
+  +head
+  
+
+body(data-spy="scroll" data-target=".navbar" data-offset="80")
+
+  header
+    nav.navbar.bg-light.navbar-expand-xl.fixed-top
+      +navi(false)
+      //include modulos/_reserva
+  
+  section#banner
+    .carousel.slide(data-ride="carousel")#bannerSlide
+      .carousel-inner: .carousel-item.active: img(src="app/img/renta-slip.jpg").d-block.w-100
+  
+  section#tarifas
+    .container
+      .row.justify-content-center
+        .col.text-center: h2 Tarifas por Slip
+      .row.justify-content-center
+        .col-md-6
+          .card
+            .card-content
+              table.table
+                thead
+                  tr
+                    th Longitud
+                    th Atraque por pie por mes
+                tbody
+                  tr
+                    td Hasta de 39 pies
+                    td $19.00 USD
+                  tr
+                    td 40 - 49 pies
+                    td $20.30 USD
+                  tr
+                    td 50 - 59 pies
+                    td $24.00 USD
+                  tr
+                    td 60 - 69 pies
+                    td $28.75 USD
+                  tr
+                    td 70 - 79 pies
+                    td $33.50 USD
+                  tr
+                    td 80 - 89 pies
+                    td $42.00 USD
+                  tr
+                    td 90 - 99 pies
+                    td $46.25 USD
+                  tr
+                    td 100 - 119 pies
+                    td $46.25 USD
+                  tr
+                    td 120 - 149 pies
+                    td $51.00 USD
+                  tr
+                    td 150 - 200 pies
+                    td $63.00 USD
+                  tr
+                    td Diario, hasta de 69 pies
+                    td $2.50 USD por pie por día
+                  tr
+                    td Diario, superior a 70 pies
+                    td $4.50 USD por pie por día
+          p Las tarifas se basan en la longitud de la embarcación o slip, cualquiera que sea mayor.
+                
+        .col-md-6
+          div(style="background-image: url(app/img/renta-slip-1.jpg)").min-height-bg300
+          p #[strong Servicios incluídos en tarifa] - Bombeo de aguas negras directamente en el slip, baños y regaderas, hermosa playa, estacionamiento, sala para tripulación, Internet, transporte a la ciudad en horarios programados.
+          p #[strong Servicios con cargo extra] - Bodegas, lavandería, hotel, servicios de mantenimiento a embarcaciones, rampa de botado, marina seca, instalaciones de Club de Playa.
+          p #[strong Impuestos] – IVA y todos los impuestos aplicables se cargan adicionalmente a las tarifas vigentes.
+          p #[strong Depósitos] – Se requiere de un mes de renta en depósito para estancias de un mes o más de duración. Para estancias cortas, se requerirá la totalidad del pago al momento de la reservación.
+          p #[strong Slips transitorios] - sujetos a disponibilidad. Prorrateo después de 8 días de estancia.
+          p #[strong Estancia a bordo] – Permitida bajo ciertas condiciones. Consulte más detalles.
+          p #[strong Excedente de longitud] – Se permite hasta 10% del largo del slip. Ninguna embarcación podrá sobrepasar dicho límite.
+          p #[strong Crédito de subarrendamiento] - Un crédito de hasta el 50% está disponible. Favor de informarse sobre detalles más específicos. 
+
+
+  section#tarifas
+    .container
+      .row.justify-content-center
+        .col.text-center: h2 Reserve un Slip
+      form
+        .row.justify-content-center
+            .col-md-6
+                +inputText("Nombre de la embarcación")
+                +inputText("Marca y Año")
+                +inputText("Eslora (LOA)")
+                +inputText("Calado")
+                +inputText("Manga")
+                +inputOptions("Tipo de Buque", "Motor", "Velero")
+                +inputText("Requerimientos Eléctricos")
+                p.text-center Ubicación del Slip
+                +inputText("Número preferido de Slip <small><a href='app/marina-slip-map.pdf'>Ver mapa de Slip</a></small>", "text", "Número preferido de Slip")
+                p: small Las asignaciones específicas de slips están sujetas a disponibilidad. Si su ubicación preferida no se encuentra disponible entonces procuraremos reallizar la reservación en el slip más cercano que cumpla con los requerimientos de su embarcación.
+        .row.justify-content-center
+            .col-md-6
+                p.text-center Información personal
+                +inputText("Nombre del dueño")
+                +inputText("Teléfono casa")
+                +inputText("Cel")
+                +inputText("Oficina")
+                +inputText("Fax")
+                +inputText("Otro teléfono")
+                +inputText("Email")
+                +inputText("Domicilio del dueño")
+            .col-md-6
+                p.text-center Información del Capitan #[small (en caso de ser diferente a la anterior)]
+                +inputText("Nombre del capitan")
+                +inputText("Casa")
+                +inputText("Cel")
+                +inputText("Oficina")
+                +inputText("Fax")
+                +inputText("Otro")
+                +inputText("Email")
+        
+        .row.justify-content-center
+            .col-md-6
+                p.text-center Datos de la Reservación
+                +inputText("Fecha de arribo", "date")
+                +inputText("Fecha de salida", "date")
+                +inputText("Último puerto")
+                +inputText("Próximo puerto")
+            .col-md-6
+                p.text-center Periodo solicitado
+                +inputOptions("Periodo", "Diario", "Semanal", "Mes a mes", "12 Meses (Aplica Descuento)", "24 Meses (Aplica Descuento)")
+                p.text-center: small  Si aplica descuento, por favor pregunte por los detalles.
+                +inputTextarea("Peticiones expeciales / Comentarios")
+        .row.justify-content-center
+            p: small Políticas para la Solicitud de Reservación: Las Solicitudes de Reservación se basan en el orden en que son recibidas y no están completas a menos de que estén acompañadas por el depósito correspondiente como se indica en la hoja de Tarifas prevaleciente. Al recibir la Solicitud de Reservación y el depósito, se prepara un contrato de arrendamiento y se le envía por correo para su revisión y firma. Su Solicitud de Reservación y depósito serán retenidos por 14 días. Si no hemos recibido su contrato de arrendamiento firmado antes de terminar el periodo de reservación, la reservación será cancelada y el depósito le será devuelto. Una vez que el contrato de arrendamiento se ejecute, los depósitos se vuelven no-reembolsables.
+
+        .form-group.row
+            .col.text-center: button(type="submit").btn.btn-large.btn-primary Reserve un Slip
+            
+
+  +footer
+  +scripts
+  

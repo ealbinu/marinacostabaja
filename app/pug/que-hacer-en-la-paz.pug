@@ -1,0 +1,51 @@
+include _app
+doctype html
+html(lang="es")
+  +head
+  
+
+body(data-spy="scroll" data-target=".navbar" data-offset="80")
+
+  header
+    nav.navbar.bg-light.navbar-expand-xl.fixed-top
+      +navi(false)
+      //include modulos/_reserva
+  
+  section#banner
+    .carousel.slide(data-ride="carousel")#bannerSlide
+      .carousel-inner: .carousel-item.active: img(src="app/img/que-hacer.jpg").d-block.w-100
+  
+  section.section
+    .container
+      .row.justify-content-center
+        .col.text-center: h2 Qué hacer en La Paz
+      .row.justify-content-center
+        .col-md-12
+            p #[strong Escápese a La Paz], dé un paseo por el malecón y disfrute del romántico atardecer. Deléitese con la comida regional . Explore museos históricos o compre tradicionales artesanías mexicanas. Experimente la legendaria pesca de marlin, wahoo, atún, dorado y más. Practique snorkel con amistosos lobos de mar o bucee con tiburones martillo y manta rayas gigantes. Practique kayak acompañado de delfines y ballenas o aventúrese en las tranquilas bahías de la Isla Espíritu Santo. Descubra ancestrales pinturas rupestres. Relájese en las infinitas playas de arena blanca. Póngase en contacto con su yo interior. Todo esto le está esperando en La Paz, Baja California Sur, México.
+      .row.justify-content-center.mt-5
+        .col-md-6
+          div(style="background-image: url(app/img/la-paz-1.jpg)").min-height-bg300
+        .col-md-6
+            p El malecón corre a lo largo de la ciudad en La Paz y ofrece una variedad de tiendas, restaurantes, museos, galerías, bares, servicios turísticos y mucho más… 
+            p Nade con los leones marinos en las claras aguas de la Isla del Espíritu santo. Disfrute snorkelear y jugar con los cachorros, reme en kayak hacia hermosas playas vírgenes y disfrute la tranquilidad de la abundante vida marítima.
+            p Un paraíso natural donde el mar se encuentra con la Sierra Laguna; localizada en la península de Baja California es sitio de varios ecosistemas. En diciembre podrá avistar ballenas en su paso migratorio por la costa. Al llegar en automóvil, visite Todos Santos, un oasis de palmeras y árboles de frutales. Todos los Santos atraen aficionados de la playa, observadores de aves, apasionados del medio ambiente, buzos, pescadores, artistas, y mucho más.
+      .row.justify-content-center.mt-5
+        .col-md-6
+            ul
+              li Avistamiento de ballenas en Bahía Magdalena.
+              li Snorkel y kayak en aguas tranquilas.
+              li Visite el museo histórico de Nuestra señora del Pilar en La Paz.
+              li Cabalgue en el desierto y descubra el Cardón, el cactus más grande del mundo.
+              li Innumerables oportunidades de ecoturismo.
+              li Vela y surf de vela en Los Barriles; disfrute los vientos de invierno para recorrer el mar entre playas arenosas.
+              li Todos Santos, un destino para surfistas con hospitalarias calles llenas de galerías de arte.
+              li Jacques Costeau, famoso buzo y documentalista, llamó al Mar de Cortés 'El Acuario del Mundo'.
+              li Más de 4,000 plantas florecen en los ecosistemas cercanos; coyotes, zorros y borregos cimarrones habitan las abundantes tierras.
+              li Las playas Punta Coyote y San Evaristo ofrecen excelentes experiencias de campismo donde verá lagartijas y correcaminos cruzar el paisaje.
+        .col-md-6
+          div(style="background-image: url(app/img/la-paz-2.jpg)").min-height-bg300
+      p.mt-5 #[strong Marina CostaBaja] se encuentra en el Mar de Cortés, notorio por ofrecer la mejor pesca deportiva del mundo. Localizado en La Paz, que es también conocida por ser una de las ciudades más seguras de México. Le invitamos a visitarnos y disfrutar todo lo que La Paz y su cálida hospitalidad latina tienen que ofrecer.
+
+  +footer
+  +scripts
+  

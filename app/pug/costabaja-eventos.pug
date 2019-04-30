@@ -1,0 +1,34 @@
+include _app
+doctype html
+html(lang="es")
+  +head
+  
+
+body(data-spy="scroll" data-target=".navbar" data-offset="80")
+
+  header
+    nav.navbar.bg-light.navbar-expand-xl.fixed-top
+      +navi(false)
+      //include modulos/_reserva
+  
+  section#banner
+    .carousel.slide(data-ride="carousel")#bannerSlide
+      .carousel-inner: .carousel-item.active: img(src="app/img/resort-eventos.jpg").d-block.w-100
+  
+  section.section
+    .container
+      .row.justify-content-center
+        .col.text-center.resortlogo: img(src="app/img/costabaja-resort-spa.png", alt="Costabaja Resort & Spa")            
+      .row.justify-content-center.mt-5
+        .col-md-6
+          div(style="background-image: url(app/img/eventos-costabaja.jpg)").min-height-bg300
+        .col-md-6
+          p #[strong CostaBaja Resort & Spa] es el destino perfecto para celebrar su boda, reunión de negocios o evento familiar. El equipo de especialistas está dedicado en hacer su experiencia placentera y memorable; nuestro personal se encargará de cada detalle para asegurarle sofisticación y satisfacción. Con una selección de espacios interiores y al aire libre, creativos menús gourmet, música, flores, hospedaje para invitados y transporte, todas sus necesidades estarán cubiertas. CostaBaja Resort & Spa diseñará su evento o boda con minuciosa atención al detalle para ofrecerle a usted y a sus invitados una experiencia inolvidable.
+          p #[strong CostaBaja Resort & Spa] le ofrece una variedad de locaciones para su evento, incluyendo una majestuosa piscina con escalinata para una gran entrada, un Bar frente a la marina con espectaculares vistas del atardecer y espacio para recepciones acondicionada para recibir 230 invitados. 
+      
+
+  +costabajaAreas
+
+  +footer
+  +scripts
+  

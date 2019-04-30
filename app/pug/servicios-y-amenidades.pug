@@ -1,0 +1,116 @@
+include _app
+doctype html
+html(lang="es")
+  +head
+  
+
+body(data-spy="scroll" data-target=".navbar" data-offset="80")
+
+  header
+    nav.navbar.bg-light.navbar-expand-xl.fixed-top
+      +navi(false)
+      //include modulos/_reserva
+  
+  section#banner
+    .carousel.slide(data-ride="carousel")#bannerSlide
+      .carousel-inner: .carousel-item.active: img(src="app/img/servicios-amenidades.jpg").d-block.w-100
+  
+  section.section
+    .container
+      .row.justify-content-center
+        .col.text-center: h2 Servicios y Amenidades
+      .row.justify-content-center
+        .col-md-6
+          h3 Doble dársena con 250 Slips
+          h3 Embarcaciones de 30 a 225 pies
+          h3 Modernos muelles de concreto
+          ul
+            li Servicio de lavandería
+            li Cajas de seguridad
+            li Seguridad las 24 horas del día
+            li Acceso a Internet de alta velocidad 
+            li Servicio de extracción de aguas en cada slip
+            li Sala de capitanes con TV satelital
+            li Baños y regaderas
+            li Toma de agua desalinizada en cada slip
+            li Personal profesional 
+            li Servicio de mantenimiento 
+            li Muelle de combustible 
+            li Conexion eléctrica trifásica con medidores: 30 amp/120V,
+            li 50 amp/220V, 100 amp/220V, 100 amp/480V
+        .col-md-6
+          div(style="background-image: url(app/img/servicios.jpg)").min-height-bg500
+  section.section: .container
+    .row.justify-content-center
+      .col-md-6
+        div(style="background-image: url(app/img/amenidades.jpg)").min-height-bg300
+      .col-md-6
+        h2 Marina Costabaja le ofrece:
+        ul
+          li Tienda de buceo y pesca deportiva
+          li Centro de negocios con tarifa preferencial
+          li Restaurantes gourmet y mini súper
+          li Áreas verdes, playa y más 
+          li Sala de conferencias en CostaBaja Resort & Spa con tarifa preferencial
+          li Tiendas, restaurantes, galerías, servicios de expediciones, renta de kayak y más…
+    
+  section#tarifas
+    .container
+      .row.justify-content-center
+        .col.text-center: h2 Reserve un Slip
+      form
+        .row.justify-content-center
+            .col-md-6
+                +inputText("Nombre de la embarcación")
+                +inputText("Marca y Año")
+                +inputText("Eslora (LOA)")
+                +inputText("Calado")
+                +inputText("Manga")
+                +inputOptions("Tipo de Buque", "Motor", "Velero")
+                +inputText("Requerimientos Eléctricos")
+                p.text-center Ubicación del Slip
+                +inputText("Número preferido de Slip <small><a href='app/marina-slip-map.pdf'>Ver mapa de Slip</a></small>", "text", "Número preferido de Slip")
+                p: small Las asignaciones específicas de slips están sujetas a disponibilidad. Si su ubicación preferida no se encuentra disponible entonces procuraremos reallizar la reservación en el slip más cercano que cumpla con los requerimientos de su embarcación.
+        .row.justify-content-center
+            .col-md-6
+                p.text-center Información personal
+                +inputText("Nombre del dueño")
+                +inputText("Teléfono casa")
+                +inputText("Cel")
+                +inputText("Oficina")
+                +inputText("Fax")
+                +inputText("Otro teléfono")
+                +inputText("Email")
+                +inputText("Domicilio del dueño")
+            .col-md-6
+                p.text-center Información del Capitan #[small (en caso de ser diferente a la anterior)]
+                +inputText("Nombre del capitan")
+                +inputText("Casa")
+                +inputText("Cel")
+                +inputText("Oficina")
+                +inputText("Fax")
+                +inputText("Otro")
+                +inputText("Email")
+        
+        .row.justify-content-center
+            .col-md-6
+                p.text-center Datos de la Reservación
+                +inputText("Fecha de arribo", "date")
+                +inputText("Fecha de salida", "date")
+                +inputText("Último puerto")
+                +inputText("Próximo puerto")
+            .col-md-6
+                p.text-center Periodo solicitado
+                +inputOptions("Periodo", "Diario", "Semanal", "Mes a mes", "12 Meses (Aplica Descuento)", "24 Meses (Aplica Descuento)")
+                p.text-center: small  Si aplica descuento, por favor pregunte por los detalles.
+                +inputTextarea("Peticiones expeciales / Comentarios")
+        .row.justify-content-center
+            p: small Políticas para la Solicitud de Reservación: Las Solicitudes de Reservación se basan en el orden en que son recibidas y no están completas a menos de que estén acompañadas por el depósito correspondiente como se indica en la hoja de Tarifas prevaleciente. Al recibir la Solicitud de Reservación y el depósito, se prepara un contrato de arrendamiento y se le envía por correo para su revisión y firma. Su Solicitud de Reservación y depósito serán retenidos por 14 días. Si no hemos recibido su contrato de arrendamiento firmado antes de terminar el periodo de reservación, la reservación será cancelada y el depósito le será devuelto. Una vez que el contrato de arrendamiento se ejecute, los depósitos se vuelven no-reembolsables.
+
+        .form-group.row
+            .col.text-center: button(type="submit").btn.btn-large.btn-primary Reserve un Slip
+            
+
+  +footer
+  +scripts
+  
